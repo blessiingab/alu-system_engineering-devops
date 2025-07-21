@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
-# This script installs and configures nginx to serve "Holberton School"
+# Installs nginx web server and configures it to serve a page containing "Holberton School"
 
-sudo apt-get update
-sudo apt-get -y install nginx
+# Update package lists and install nginx
+apt-get update
+apt-get install -y nginx
 
-echo "Holberton School" | sudo tee /var/www/html/index.html > /dev/null
+# Make sure nginx is running
+service nginx start
 
-sudo service nginx restart
+# Configure nginx to listen on port 80 (default)
+# Create the html page with the required content
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+
+# Ensure nginx configuration is applied
+service nginx rest
